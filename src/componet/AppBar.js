@@ -13,6 +13,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -30,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function MenuAppBar({handleClose,handleChange,auth,handleMenu,anchorEl,open}) {
+export default function MenuAppBar({handleClose,toggleModalHandler,auth,handleMenu,anchorEl,open}) {
   const classes = useStyles();
   // const [auth, setAuth] = React.useState(true);
   // const [anchorEl, setAnchorEl] = React.useState(null);
@@ -63,8 +64,8 @@ export default function MenuAppBar({handleClose,handleChange,auth,handleMenu,anc
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Photos
+          <Typography variant="h6" className={classes.title} >
+           Home
           </Typography>
           {auth ? (
             <div>
@@ -96,7 +97,7 @@ export default function MenuAppBar({handleClose,handleChange,auth,handleMenu,anc
                 <MenuItem onClick={handleClose}>Logout</MenuItem>
               </Menu>
             </div>
-          ): <Button onClick={handleChange} className={classes.btn} variant="outlined" size="small" color="default">Login</Button>}
+          ): <Button onClick={toggleModalHandler} className={classes.btn} variant="outlined" size="small" color="default">Login</Button>}
         </Toolbar>
       </AppBar>
     </div>

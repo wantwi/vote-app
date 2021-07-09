@@ -16,9 +16,9 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MediaCard(props) {
-    console.log({props})
-  let {name,img, title,desc,id,auth} = props
+export default function MediaCard({data,auth,voteCantidate}) {
+   
+  let {first_name,last_name,img, title,desc,id,votes} = data
   const classes = useStyles();
 
   return (
@@ -41,7 +41,7 @@ export default function MediaCard(props) {
                 variant="h6"
                 component="h6"
               >
-                {name}
+                {`${first_name} ${last_name}`}
               </Typography>
             </Grid>
             <Grid item xs={4}>
@@ -51,7 +51,7 @@ export default function MediaCard(props) {
                 variant="h6"
                 component="h6"
               >
-                Votes: 300
+                Votes: {votes}
               </Typography>
             </Grid>
           </Grid>
@@ -78,7 +78,7 @@ export default function MediaCard(props) {
       </Link>
       <CardActions style={{ margin: "0",  background: "#fff" }}>
      
-       {auth? <Button style={{ background: "#ba1c24"}} disableElevation fullWidth size="small" variant="contained" color="secondary">
+       {auth? <Button onClick={()=>{voteCantidate(id)}} style={{ background: "#ba1c24"}} disableElevation fullWidth size="small" variant="contained" color="secondary">
           Vote
         </Button>:null}
       </CardActions>
