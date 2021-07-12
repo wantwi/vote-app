@@ -7,7 +7,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Login from "../forms/Login"
-// import SginUp from "../forms/SginUp"
+import SginUp from "../forms/SginUp"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleTabs({loginData,setAuth,setopenModal}) {
+export default function SimpleTabs({loginData,setAuth,setopenModal,setuser,db}) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -67,10 +67,10 @@ export default function SimpleTabs({loginData,setAuth,setopenModal}) {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-       <Login setAuth={setAuth} loginData={loginData} setopenModal={setopenModal}/>
+       <Login setuser={setuser} setAuth={setAuth} loginData={loginData} setopenModal={setopenModal}/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        {/* <SginUp/> */}
+        <SginUp setopenModal={setopenModal} db={db}/>
 
       </TabPanel>
      

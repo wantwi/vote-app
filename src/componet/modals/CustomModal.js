@@ -49,7 +49,7 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function CustomizedDialogs({openModal,toggleModalHandler,loginData,setAuth,setopenModal}) {
+export default function CustomizedDialogs({openModal,toggleModalHandler,loginData,setAuth,setopenModal,setuser,db}) {
   const [open, setOpen] = React.useState(false);
   
   const handleClickOpen = () => {
@@ -69,7 +69,7 @@ export default function CustomizedDialogs({openModal,toggleModalHandler,loginDat
           Modal title
         </DialogTitle> */}
         <DialogContent dividers>
-            <SimpleTabs setopenModal={setopenModal} setAuth={setAuth} loginData={loginData}/>
+            <SimpleTabs setuser={setuser} setopenModal={setopenModal} setAuth={setAuth} loginData={loginData} db={db}/>
         </DialogContent>
         {/* <DialogActions>
           <Button autoFocus onClick={toggleModalHandler} color="primary">

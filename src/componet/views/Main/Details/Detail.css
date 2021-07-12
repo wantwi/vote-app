@@ -46,7 +46,8 @@
 .wrapper img{
     width: 80vh;
   border-radius: 0.5rem;
-    height: auto;
+  min-height: 500px;
+   max-height: auto;
 }
 .more-text{
     grid-column: 1/2;

@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MediaCard({data,auth,voteCantidate}) {
+export default function MediaCard({data,auth,voteCantidate,setuser}) {
    
   let {first_name,last_name,img, title,desc,id,votes} = data
   const classes = useStyles();
@@ -58,7 +58,7 @@ export default function MediaCard({data,auth,voteCantidate}) {
           <Typography
             variant="h6"
             color="textSecondary"
-            style={{ background: "#fff" }}
+            style={{ background: "#fff",padding:"0 5px",textTransform:"uppercase",fontSize:16,opacity:"1"}}
             component="p"
           >
            { title}
@@ -68,7 +68,7 @@ export default function MediaCard({data,auth,voteCantidate}) {
           <Typography
             variant="body2"
             color="textSecondary"
-            style={{ background: "#fff" }}
+            style={{ background: "#fff",padding:"0 5px" }}
             component="p"
           >
            {desc}

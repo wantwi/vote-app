@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   
  
 
-function Main({auth,voteCantidate, state}) {
+function Main({auth,voteCantidate, state,setuser}) {
     const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -28,7 +28,7 @@ function Main({auth,voteCantidate, state}) {
                 
                 <Grid item lg={3} xl={3} md={4} xs={12} key={data.id}>
                     
-                <MediaCard voteCantidate={voteCantidate} auth={auth} data = {data}/>
+                <MediaCard setuser={setuser} voteCantidate={voteCantidate} auth={auth} data = {data}/>
                
                </Grid>
               

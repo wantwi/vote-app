@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 let db = new Localbase("db");
 
 
+
 toast.configure();
 
 const notify_success = (message) => {
@@ -42,15 +43,16 @@ const validationSchema = Yup.object({
     username: Yup.string().required("This field is required"),
     password: Yup.string()
       .required("Please Enter your password")
-      .matches(
-        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-        "Must Contain 8 Characters,Uppercase,Lowercase, and character"
-      ),
+      // .matches(
+      //   /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+      //   "Must Contain 8 Characters,Uppercase,Lowercase, and character"
+      // ),
   });
 
 
 
-function Login({loginData,setAuth,setopenModal}) {
+function Login({loginData,setAuth,setopenModal,setuser}) {
+
   
     const formik = useFormik({
         initialValues: loginData,
@@ -61,6 +63,7 @@ function Login({loginData,setAuth,setopenModal}) {
                 let isfound = users.find(x=> (x.username === values.username && x.password === values.password))
 
                 let found = isfound? true : false ;
+                setuser(isfound)
 
                 if(found){
                     notify_success("Login successfully. You can vote now!")
